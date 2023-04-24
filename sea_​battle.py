@@ -54,8 +54,8 @@ class GamePole:
         self.ships = [Ship(4,tp = random.randint(1,2)),Ship(3,tp = random.randint(1,2)),Ship(3,tp = random.randint(1,2)),Ship(2,tp = random.randint(1,2)),Ship(2,tp = random.randint(1,2)),Ship(2,tp = random.randint(1,2)),Ship(1,tp = random.randint(1,2)),Ship(1,tp = random.randint(1,2)),Ship(1,tp = random.randint(1,2)),Ship(1,tp = random.randint(1,2))]
 
         self.board = []
-        for i in range(size):
-            self.board.append(["O"] * size)
+        for i in range(12):
+            self.board.append(["O"] * 12)
 
     def get_ships(self):
         return self.ships
@@ -63,10 +63,10 @@ class GamePole:
         for i in self.ships:
             placed = False
             while not placed:
-                x = random.randint(0, len(self.board) - 1)
-                y = random.randint(0, len(self.board) - 1)
+                x = random.randint(1, self.size-1)
+                y = random.randint(1, self.size-1)
                 if i.tp == 1:
-                    if y + i.lenght <= len(self.board):
+                    if y + i.lenght <= self.size:
                         valid = True
                         for j in range(i.lenght):
                             if self.board[x][y + j] != "O":
@@ -76,7 +76,7 @@ class GamePole:
                                 self.board[x][y + z] = i
                             placed = True
                 else:
-                    if x + i.lenght <= len(self.board):
+                    if x + i.lenght <= self.size:
                         valid = True
                         for v in range(i.lenght):
                             if self.board[x + v][y] != "O":
@@ -102,5 +102,3 @@ class GamePole:
 game = GamePole(10)
 game.place_ships()
 game.show()
-#dsadasdasd
-game.size = 1
