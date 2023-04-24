@@ -103,3 +103,4 @@ game = GamePole(10)
 game.place_ships()
 game.show()
 #dsadasdasd
+game.size = 1
