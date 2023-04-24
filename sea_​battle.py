@@ -102,3 +102,4 @@ class GamePole:
 game = GamePole(10)
 game.place_ships()
 game.show()
+#dsadasdasd
